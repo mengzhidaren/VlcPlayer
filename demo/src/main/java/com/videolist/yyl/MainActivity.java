@@ -2,7 +2,6 @@ package com.videolist.yyl;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +16,10 @@ import com.yyl.videolist.utils.LogUtils;
 
 import org.videolan.vlc.util.VLCInstance;
 
+/**
+ * 市场 上的列表播放器 好像只有这 5 种写法了
+ * 欢迎补充
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -39,16 +42,42 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, RTSPActivity.class));
     }
 
-    public void listVideo(View view) {
-
+    /**
+     * 常规----切换根布局更换父容器
+     */
+    public void listVideo1(View view) {
+        //
     }
 
     /**
-     *  悬浮播放
+     * <p>推荐</p>
+     * 悬浮无入侵
      */
     public void listVideo2(View view) {//悬浮播放
         startActivity(new Intent(this, ListVideoActivity.class));
     }
+
+    /**
+     * 切换activity
+     */
+    public void listVideo3(View view) {
+
+    }
+
+    /**
+     * 旋转rotation 写法
+     */
+    public void listVideo4(View view) {
+
+    }
+
+    /**
+     * 悬浮server 写法
+     */
+    public void listVideo5(View view) {
+
+    }
+
 
     public void viewpage(View view) {
         startActivity(new Intent(this, ViewPageListActivity.class));

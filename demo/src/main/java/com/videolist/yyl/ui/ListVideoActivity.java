@@ -35,6 +35,7 @@ public class ListVideoActivity extends AppCompatActivity {
         vlcVideoView.onAttached(this);
         vlcVideoView.onAttached(recyclerView);
         initData();
+        getSupportActionBar().setTitle("recycleView列表视频悬浮播放 无入侵写法");
     }
 
     @Override

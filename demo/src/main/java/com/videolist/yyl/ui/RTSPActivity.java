@@ -43,6 +43,7 @@ public class RTSPActivity extends AppCompatActivity implements MediaListenerEven
         videoView.setMediaListenerEvent(this);
         videoView.startPlay(path3);
         editText.setText(path2);
+        getSupportActionBar().setTitle("RTSP,电视直播,m3u8");
     }
 
     @Override

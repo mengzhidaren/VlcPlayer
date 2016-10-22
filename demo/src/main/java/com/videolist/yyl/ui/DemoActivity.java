@@ -20,6 +20,7 @@ public class DemoActivity extends AppCompatActivity {
         vlcVideoView = V.findV(this, R.id.demo_video);
         vlcVideoView.onAttached(this);
         vlcVideoView.playVideo(path);
+        getSupportActionBar().setTitle("Demo VideoPlayer");
     }
     @Override
     public void onConfigurationChanged(Configuration newConfig) {

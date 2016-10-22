@@ -22,7 +22,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="listVideo"
+        android:onClick="listVideo1"
         android:text="recycleView列表视频" />
 
     <Button

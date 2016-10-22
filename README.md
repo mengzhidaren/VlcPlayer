@@ -4,13 +4,9 @@ vlc-android播放器
 VlcPlayer实现了在列表控件（RecyclerView）中加载并播放视频，
 非入侵adapter的写法
 
-**注意：最低支持API 14以上**
-
 #效果预览
-
-
-**Demo 更新**
-
+![image](https://github.com/mengzhidaren/RecyclerViewVideoDemo/blob/master/gif/demo.gif)
+![image](https://github.com/mengzhidaren/RecyclerViewVideoDemo/blob/master/gif/demo.gif)
 #基本用法
 
 	

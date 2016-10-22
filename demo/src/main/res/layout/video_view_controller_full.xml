@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/mediacontroller_up_layout"
+        android:layout_width="match_parent"
+        android:layout_height="92px"
+        android:background="@color/transparent_black_85"
+        android:clickable="true"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mediacontroller_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/md_nav_back" />
+
+            <TextView
+                android:id="@+id/mediacontroller_file_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mediacontroller_projection"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingLeft="@dimen/margin15"
+                android:paddingRight="@dimen/margin15"/>
+
+            <ImageButton
+                android:id="@+id/mediacontroller_lock"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingLeft="@dimen/margin15"
+                android:paddingRight="@dimen/margin15" />
+
+            <ImageButton
+                android:id="@+id/mediacontroller_share"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingLeft="@dimen/margin15"
+                android:paddingRight="@dimen/margin15" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/mediacontroller_down_layout"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_gravity="bottom"
+        android:clickable="true"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:id="@+id/mediacontroller_tag"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="@color/transparent_black_85"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mediacontroller_time_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:text="12:12 / 12.00"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/text_size_14" />
+
+
+            <ImageButton
+                android:id="@+id/mediacontroller_playmode"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="100dp"
+                android:background="@null"
+                android:paddingLeft="@dimen/margin15"
+                android:paddingRight="@dimen/margin15" />
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/mediacontroller_last"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:padding="15dp"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/mediacontroller_play_pause"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:padding="10dp"/>
+
+                <ImageButton
+                    android:id="@+id/mediacontroller_next"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:padding="15dp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/mediacontroller_mirror"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="80dp"
+                android:gravity="center"
+                android:text="未镜像"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/mediacontroller_speed_change"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:text="1.0X"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/text_size_14" />
+        </FrameLayout>
+
+        <SeekBar
+            android:id="@+id/mediacontroller_seekbar"
+            style="@style/MediaController_SeekBar_fill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"
+            android:focusable="true"
+            android:max="1000"
+            android:progress="0"
+            android:progressTintMode="screen"
+            android:thumbOffset="2dip" />
+    </FrameLayout>
+
+
+</merge>

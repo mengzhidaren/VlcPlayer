@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/mediacontroller_conter_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mediacontroller_fill_bg"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/mediacontroller_down_layout_small"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom"
+        android:background="@color/transparent_black_85"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/mediacontroller_play_pause_small"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:padding="10dp"
+            android:src="@drawable/mediacontroller_button" />
+
+        <TextView
+            android:id="@+id/mediacontroller_time_current_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:text="00:00"
+            android:textColor="@color/text_yellow" />
+
+        <SeekBar
+            android:id="@+id/mediacontroller_seekbar_small"
+            style="@style/MediaController_SeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:max="1000"
+            android:progress="0"
+            android:thumbOffset="2dip" />
+
+        <TextView
+            android:id="@+id/mediacontroller_time_total_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:padding="1dp"
+            android:text="00:00"
+            android:textColor="@color/text_yellow" />
+
+        <ImageButton
+            android:id="@+id/mediacontroller_change_small"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/mediacontroller_change"
+            android:visibility="visible" />
+    </LinearLayout>
+</merge>

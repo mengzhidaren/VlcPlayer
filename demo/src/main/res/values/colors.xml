@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="red">#FFC93437</color>
+    <color name="blue">#FF375BF1</color>
+    <color name="yellow">#FFF7D23E</color>
+    <color name="yellow2">#f5df84</color>
+    <color name="green">#FF34A350</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#000000</color>
+    <color name="black50">#7f000000</color>
+
+    <color name="translucent_background_80">#CC000000</color>
+    <color name="translucent_background_50">#7f000000</color>
+    <color name="transparent_black_15">#26000000</color>
+    <color name="transparent_black_40">#66000000</color>
+    <color name="transparent_black_75">#bf000000</color>
+    <color name="transparent_black_25">#40000000</color>
+    <color name="transparent_black_85">#DA000000</color>
+    <color name="transparent_black_30">#4D000000</color>
+    <color name="transparent_black_70">#70000000</color>
+    <color name="transparent_black_50">#80000000</color>
+
+
+    <color name="mediacontroller_bg_pressed">#ff53c1bd</color>
+    <color name="mediacontroller_bg">#99000000</color>
+    <color name="media_small_bg">#b4000000</color>
+    <color name="mediacontroller_fill_bg">#65000000</color>
+    <color name="text_yellow">#ffd10c</color>
+    <color name="text_green">#17e49f</color>
+
+    <color name="text_green2">#1d9973</color>
+    <color name="text_green3">#1cb467</color>
+    <color name="text_content">#EAEBED</color>
+    <color name="text_content1">#9d9d9d</color>
+    <color name="text_content2">#606060</color>
+    <color name="text_content3">#4a4b52</color>
+    <color name="text_hint">#666880</color>
+</resources>

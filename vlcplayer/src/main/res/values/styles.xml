@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="MediaController_SeekBar" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/scrubber_progress_horizontal_holo_dark
+        </item>
+        <item name="android:thumb">@drawable/play_control_scrubber</item>
+    </style>
+
+    <style name="MediaController_SeekBar_fill" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/scrubber_progress_horizontal_holo_dark
+        </item>
+        <item name="android:thumb">@drawable/play_control_scrubber</item>
+    </style>
+</resources>

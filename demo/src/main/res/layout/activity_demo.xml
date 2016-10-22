@@ -10,4 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.videolist.yyl.ui.DemoActivity">
 
+
+    <com.yyl.videolist.video.VlcVideoView
+        android:id="@+id/demo_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue" />
+
 </RelativeLayout>

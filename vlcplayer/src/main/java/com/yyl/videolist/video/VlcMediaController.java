@@ -17,9 +17,11 @@ public class VlcMediaController extends VlcMediaControllerBase {
     public void onAttachedToWindow() {
         isResume = true;
     }
+
     public void onDetachedFromWindow() {
         isResume = false;
     }
+
     @Override
     public void eventBuffing(final float buffing, boolean show) {
         if (isResume) {
@@ -36,6 +38,10 @@ public class VlcMediaController extends VlcMediaControllerBase {
 
     @Override
     public void eventPlayInit(boolean opening) {
+        if (!opening) {
+            smallLayout.close();
+            fullLayout.close();
+        }
         mediaTouch.setError(false);
     }
 

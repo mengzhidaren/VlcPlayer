@@ -3,6 +3,7 @@ package com.yyl.videolist.video;
 import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.View;
 import com.yyl.videolist.R;
 import com.yyl.videolist.VideoView;
 import com.yyl.videolist.listeners.MediaPlayerChangeState;
+import com.yyl.videolist.utils.LogUtils;
 
 /**
  * Created by yyl on 2016/10/12/012.
@@ -58,7 +60,7 @@ public class VlcVideoView extends VlcVideoViewImpl {
         return false;
     }
 
-    private int layoutState;
+    private int layoutState = MediaPlayerChangeState.stateSmallFull;
 
     public void changeLayoutState(int layoutState) {
         this.layoutState = layoutState;
@@ -70,7 +72,7 @@ public class VlcVideoView extends VlcVideoViewImpl {
         controller.setSmallLayout(new MediaControllerSmall(activity, this, videoPlayer, controller));
         //controller.setFullLayout(new MediaControllerSmall(activity, this, videoPlayer, controller));
         controller.setTouch(new MediaControllerTouch(this, videoPlayer, controller));
-        controller.changeLayoutState(MediaPlayerChangeState.stateSmallFull);
+        controller.changeLayoutState(layoutState);
     }
 
 
@@ -78,6 +80,12 @@ public class VlcVideoView extends VlcVideoViewImpl {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         controller.onAttachedToWindow();
+    }
+
+    @Override
+    public void onAttached(RecyclerView recyclerView) {
+        super.onAttached(recyclerView);
+        changeLayoutState(MediaPlayerChangeState.stateSmallList);
     }
 
     @Override
@@ -93,20 +101,22 @@ public class VlcVideoView extends VlcVideoViewImpl {
         controller.setAnchor();
         AudioManager am = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
         am.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+        setVisibility(VISIBLE);
         videoPlayer.startPlay(path);
         isStop = false;
     }
 
     @Override
     public void stopVideo(boolean visiable) {
-        if (!visiable) {
-            setVisibility(INVISIBLE);
-        }
-        Log.i(tag, "stopVideo     isStop=" + isStop);
-        if (!isStop) {
+        Log.i(tag, "stopVideo     isStop=" + isStop + "   visiable=" + visiable);
+        if (!isStop && videoPlayer != null) {
             isStop = true;
             videoPlayer.onStop();
+            if (layoutState == MediaPlayerChangeState.stateSmallList) {
+                setVisibility(INVISIBLE);
+            }
         }
+
     }
 
 
@@ -121,8 +131,10 @@ public class VlcVideoView extends VlcVideoViewImpl {
             return;
         }
         if (visibility == GONE) {
+            LogUtils.i(tag, "GONE");
             stopVideo(false);
         } else if (visibility == INVISIBLE) {
+            LogUtils.i(tag, "INVISIBLE");
             stopVideo(false);
         }
     }

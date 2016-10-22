@@ -12,7 +12,8 @@
 
     <com.yyl.videolist.video.VlcVideoView
         android:id="@+id/vlc_videoView"
-        android:background="@color/red"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:visibility="invisible" />
 </RelativeLayout>

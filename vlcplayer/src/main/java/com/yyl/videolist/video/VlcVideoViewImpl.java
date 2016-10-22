@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.yyl.videolist.listeners.VideoViewDetachedEvent;
+import com.yyl.videolist.utils.LogUtils;
 import com.yyl.videolist.view.FrameLayoutScale;
 
 import java.util.ArrayList;
@@ -205,6 +206,7 @@ public abstract class VlcVideoViewImpl extends FrameLayoutScale implements Video
     public void onViewDetachedFromWindow(View v) {
         if (v.equals(currentPlayView) && !isFullState()) {
             v.removeOnAttachStateChangeListener(this);
+            LogUtils.i(tag,"v.equals(currentPlayView)");
             stopVideo(false);
         }
         Log.i(tag, "onViewDetachedFromWindow = " + v.equals(currentPlayView));

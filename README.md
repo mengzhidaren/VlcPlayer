@@ -8,8 +8,8 @@ VlcPlayer实现了在列表控件（RecyclerView）中加载并播放视频，
 非入侵adapter的写法
 
 #效果预览
-![image](https://github.com/mengzhidaren/RecyclerViewVideoDemo/blob/master/gif/demo.gif)
-![image](https://github.com/mengzhidaren/RecyclerViewVideoDemo/blob/master/gif/demo.gif)
+![image](https://github.com/mengzhidaren/VlcPlayer/blob/master/GIF/j1.gif)
+![image](https://github.com/mengzhidaren/VlcPlayer/blob/master/GIF/j2.gif)
 #基本用法
 在xml布局中加入以下代码
  <com.yyl.videolist.video.VlcVideoView

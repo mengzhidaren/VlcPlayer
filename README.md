@@ -12,6 +12,7 @@ VlcPlayer实现了在列表控件（RecyclerView）中加载并播放视频，
 ![image](https://github.com/mengzhidaren/VlcPlayer/blob/master/GIF/j2.gif)
 #基本用法
 在xml布局中加入以下代码
+```
  <com.yyl.videolist.video.VlcVideoView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -23,3 +24,4 @@ recyclerView最后调用onClickViewPlay()方法开始播放视频
   //全屏返回
    if (vlcVideoView.onBackPressed(this)) return;
     详细请查看代码
+```

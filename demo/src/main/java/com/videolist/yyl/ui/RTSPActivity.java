@@ -26,9 +26,9 @@ import java.util.ArrayList;
  */
 public class RTSPActivity extends AppCompatActivity implements MediaListenerEvent {
     VideoView videoView;
-    String path1 = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";//苹果的
+    String path1 = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";//苹果的m3u8
     String path2 = "rtmp://live.hkstv.hk.lxdns.com/live/hks";// h264的地址
-    String path3 = "rtsp://218.204.223.237:554/live/1/66251FC11353191F/e7ooqwcfbqjoo80j.sdp";//
+    String path3 = "rtsp://218.204.223.237:554/live/1/66251FC11353191F/e7ooqwcfbqjoo80j.sdp";//h263地址
 
     ProgressDialog progressDialog;
     EditText editText;
@@ -73,9 +73,10 @@ public class RTSPActivity extends AppCompatActivity implements MediaListenerEven
         libOptions.add("--network-caching=500");
         libOptions.add("--androidwindow-chroma");
         libOptions.add("RV16");
-        videoView.setMediaPlayer(new LibVLC(getApplicationContext(), libOptions));
+        LibVLC libVLC = new LibVLC(getApplicationContext(), libOptions);
+        videoView.setMediaPlayer(libVLC);
 
-        final Media media = new Media(new LibVLC(this), Uri.parse(path2));
+        final Media media = new Media(libVLC, Uri.parse(path2));
         media.setHWDecoderEnabled(true, true);
         media.parseAsync(Media.Parse.FetchNetwork, 10 * 1000);
         media.addOption(":file-caching=500");

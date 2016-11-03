@@ -2,16 +2,15 @@
 vlc-android播放器
 # VlcPlayer
 VlcPlayer实现了在列表控件（RecyclerView）中加载并播放视频，
+
+#目前进度只完完成了 1/4还有很多没写 还不是很完善  有用到的慢慢改吧  最近太忙了
+
 非入侵adapter的写法
 
 #效果预览
 ![image](https://github.com/mengzhidaren/RecyclerViewVideoDemo/blob/master/gif/demo.gif)
 ![image](https://github.com/mengzhidaren/RecyclerViewVideoDemo/blob/master/gif/demo.gif)
 #基本用法
-
-	
-	
-
 在xml布局中加入以下代码
  <com.yyl.videolist.video.VlcVideoView
         android:layout_width="match_parent"

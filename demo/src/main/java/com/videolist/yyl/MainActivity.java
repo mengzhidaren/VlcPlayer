@@ -43,13 +43,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 常规----切换根布局更换父容器
+     * 常规写法1
+     * ----切换根布局更换父容器
      */
     public void listVideo1(View view) {
-        //
+        //太多了懒的写
     }
 
     /**
+     * 常规写法2
      * <p>推荐</p>
      * 悬浮无入侵
      */
@@ -58,24 +60,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * 常规写法3
      * 切换activity
      */
     public void listVideo3(View view) {
-
+        //太多了懒的写
     }
 
     /**
+     * 常规写法4
      * 旋转rotation 写法
      */
     public void listVideo4(View view) {
-
+        //这个有时间慢慢更新
     }
 
     /**
+     * 常规写法5
      * 悬浮server 写法
      */
     public void listVideo5(View view) {
-
+        //有时间慢慢更新
     }
 
 

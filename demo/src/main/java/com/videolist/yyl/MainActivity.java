@@ -72,15 +72,15 @@ public class MainActivity extends AppCompatActivity {
      * 旋转rotation 写法
      */
     public void listVideo4(View view) {
-        //这个有时间慢慢更新
+
     }
 
     /**
      * 常规写法5
-     * 悬浮server 写法
+     * 悬浮server 写法和vlc-android 官方一样的实现  感觉不实用
      */
     public void listVideo5(View view) {
-        //有时间慢慢更新
+
     }
 
 

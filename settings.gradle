@@ -1,2 +1,2 @@
-include ':demo'
+include ':demo', ':ijkplayer'
 include ':vlcplayer'

@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.yyl.videolist.VideoView
-        android:id="@+id/vlc_video_view"
+    <com.yyl.videolist.MyVideoView
+        android:id="@+id/vlc_video_view1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

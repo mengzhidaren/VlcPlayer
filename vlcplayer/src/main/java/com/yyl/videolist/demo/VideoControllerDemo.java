@@ -47,8 +47,9 @@ public class VideoControllerDemo implements VideoViewControllerListeners {
 
     }
 
+
     @Override
-    public void eventBuffing(float buffing, boolean show) {
+    public void eventBuffing(int event, float buffing) {
 
     }
 
@@ -68,17 +69,8 @@ public class VideoControllerDemo implements VideoViewControllerListeners {
     }
 
     @Override
-    public void eventPlay() {
+    public void eventPlay(boolean isPlaying) {
 
     }
 
-    @Override
-    public void eventPause() {
-
-    }
-
-    @Override
-    public void eventReleaseInit() {
-
-    }
 }

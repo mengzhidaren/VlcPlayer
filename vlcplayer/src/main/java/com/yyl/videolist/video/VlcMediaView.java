@@ -9,8 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.yyl.videolist.MyVideoView;
 import com.yyl.videolist.R;
-import com.yyl.videolist.VideoView;
 import com.yyl.videolist.listeners.MediaPlayerChangeState;
 import com.yyl.videolist.utils.LogUtils;
 
@@ -18,31 +18,31 @@ import com.yyl.videolist.utils.LogUtils;
  * Created by yyl on 2016/10/12/012.
  */
 
-public class VlcVideoView extends VlcVideoViewImpl {
+public class VlcMediaView extends VlcVideoViewImpl {
     String tag = "VlcVideoView";
 
     private VlcMediaController controller;
     private boolean isStop = true;
-    private VideoView videoPlayer;
+    private MyVideoView videoPlayer;
 
-    public VlcVideoView(Context context) {
+    public VlcMediaView(Context context) {
         super(context);
         initView(context);
     }
 
-    public VlcVideoView(Context context, AttributeSet attrs) {
+    public VlcMediaView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView(context);
     }
 
-    public VlcVideoView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public VlcMediaView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context);
     }
 
     protected void initView(Context context) {
         LayoutInflater.from(context).inflate(R.layout.video_list_controller, this);
-        videoPlayer = findV(R.id.vlc_video_view);
+        videoPlayer = findV(R.id.vlc_video_view1);
         controller = new VlcMediaController(videoPlayer);
     }
 

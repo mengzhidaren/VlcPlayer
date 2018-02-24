@@ -11,10 +11,11 @@ import android.widget.TextView;
 
 import com.yyl.videolist.R;
 import com.yyl.videolist.listeners.FullScreenControl;
-import com.yyl.videolist.listeners.MediaPlayerControl;
 import com.yyl.videolist.listeners.VideoViewControllerListeners;
 import com.yyl.videolist.utils.StringUtils;
 import com.yyl.videolist.utils.V;
+
+import org.videolan.vlc.listener.MediaPlayerControl;
 
 /**
  * Created by yyl on 2016/2/16/016.
@@ -58,14 +59,14 @@ public class MediaControllerSmall implements VideoViewControllerListeners {
             long newposition = (mDuration * progress) / 1000;
             String time = StringUtils.generateTime(newposition);
             if (mInstantSeeking)
-                mPlayer.seekTo(newposition);
+                mPlayer.seekTo((int)newposition);
             if (mCurrentTime != null)
                 mCurrentTime.setText(time);
         }
 
         public void onStopTrackingTouch(SeekBar bar) {
             if (!mInstantSeeking)
-                mPlayer.seekTo((mDuration * bar.getProgress()) / 1000);
+                mPlayer.seekTo((int)(mDuration * bar.getProgress()) / 1000);
             mDragging = false;
         }
     };
@@ -274,8 +275,9 @@ public class MediaControllerSmall implements VideoViewControllerListeners {
 
     boolean smallState;
 
+
     @Override
-    public void eventBuffing(float buffing, boolean show) {
+    public void eventBuffing(int event, float buffing) {
 
     }
 
@@ -295,17 +297,8 @@ public class MediaControllerSmall implements VideoViewControllerListeners {
     }
 
     @Override
-    public void eventPlay() {
+    public void eventPlay(boolean isPlaying) {
 
     }
 
-    @Override
-    public void eventPause() {
-
-    }
-
-    @Override
-    public void eventReleaseInit() {
-
-    }
 }

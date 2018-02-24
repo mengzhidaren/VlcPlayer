@@ -15,7 +15,7 @@
         android:text="视频标题"
         android:textColor="@android:color/black" />
 
-    <com.yyl.videolist.view.FrameLayoutScale
+    <com.yyl.videolist.FrameLayoutScale
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/mediacontroller_small_play" />
-    </com.yyl.videolist.view.FrameLayoutScale>
+    </com.yyl.videolist.FrameLayoutScale>
 
     <RelativeLayout
         android:layout_width="match_parent"

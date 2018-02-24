@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 import com.videolist.yyl.R;
 import com.yyl.videolist.listeners.FullScreenControl;
-import com.yyl.videolist.listeners.MediaPlayerControl;
 import com.yyl.videolist.listeners.VideoViewControllerListeners;
 import com.yyl.videolist.utils.LogUtils;
 import com.yyl.videolist.utils.StringUtils;
 import com.yyl.videolist.video.MySensorListener;
 
-import butterknife.Bind;
+import org.videolan.vlc.listener.MediaPlayerControl;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -30,49 +31,49 @@ public class MediaControllerFull implements VideoViewControllerListeners {
 
     public MediaPlayerControl mPlayer;
 
-    @Bind(R.id.mediacontroller_back)
+    @BindView(R.id.mediacontroller_back)
     ImageButton mediacontrollerBack;
-    @Bind(R.id.mediacontroller_file_name)
+    @BindView(R.id.mediacontroller_file_name)
     TextView mediacontrollerFileName;
-    @Bind(R.id.mediacontroller_projection)
+    @BindView(R.id.mediacontroller_projection)
     ImageButton mediacontrollerProjection;
-    @Bind(R.id.mediacontroller_lock)
+    @BindView(R.id.mediacontroller_lock)
     ImageButton mediacontrollerLock;
-    @Bind(R.id.mediacontroller_share)
+    @BindView(R.id.mediacontroller_share)
     ImageButton mediacontrollerShare;
 
-    @Bind(R.id.mediacontroller_time_current)
+    @BindView(R.id.mediacontroller_time_current)
     TextView mCurrentTime;
 
-    @Bind(R.id.mediacontroller_playmode)
+    @BindView(R.id.mediacontroller_playmode)
     ImageButton loopButton;
-    @Bind(R.id.mediacontroller_last)
+    @BindView(R.id.mediacontroller_last)
     ImageButton mediacontrollerLast;
-    @Bind(R.id.mediacontroller_play_pause)
+    @BindView(R.id.mediacontroller_play_pause)
     ImageButton mPauseButton;
-    @Bind(R.id.mediacontroller_next)
+    @BindView(R.id.mediacontroller_next)
     ImageButton mediacontrollerNext;
-    @Bind(R.id.mediacontroller_mirror)
+    @BindView(R.id.mediacontroller_mirror)
     TextView mediacontrollerMirror;
 
-    @Bind(R.id.mediacontroller_speed_change)
+    @BindView(R.id.mediacontroller_speed_change)
     TextView mediacontroller_speed_change;
 
-    @Bind(R.id.mediacontroller_seekbar)
+    @BindView(R.id.mediacontroller_seekbar)
     SeekBar mProgress;
 
 
-    @Bind(R.id.mediacontroller_tag)
+    @BindView(R.id.mediacontroller_tag)
     LinearLayout mediacontrollerTag;
 
-    @Bind(R.id.mediacontroller_down_layout)
+    @BindView(R.id.mediacontroller_down_layout)
     View down_layout;
 
-    @Bind(R.id.mediacontroller_up_layout)
+    @BindView(R.id.mediacontroller_up_layout)
     View upLayout;
 
 
-    @Bind(R.id.mediacontroller_conter_bg)
+    @BindView(R.id.mediacontroller_conter_bg)
     View conterLayout;
     private FullScreenControl fullScreenControl;
 
@@ -115,14 +116,14 @@ public class MediaControllerFull implements VideoViewControllerListeners {
             long newposition = (mDuration * progress) / 1000;
             String time = StringUtils.generateTime(newposition);
             if (mInstantSeeking)
-                mPlayer.seekTo(newposition);
+                mPlayer.seekTo((int)newposition);
             if (mCurrentTime != null)
                 mCurrentTime.setText(time);
         }
 
         public void onStopTrackingTouch(SeekBar bar) {
             if (!mInstantSeeking)
-                mPlayer.seekTo((mDuration * bar.getProgress()) / 1000);
+                mPlayer.seekTo((int)(mDuration * bar.getProgress()) / 1000);
             mDragging = false;
         }
     };
@@ -418,7 +419,7 @@ public class MediaControllerFull implements VideoViewControllerListeners {
     }
 
     @Override
-    public void eventBuffing(float buffing, boolean show) {
+    public void eventBuffing(int event, float buffing) {
 
     }
 
@@ -438,19 +439,11 @@ public class MediaControllerFull implements VideoViewControllerListeners {
     }
 
     @Override
-    public void eventPlay() {
+    public void eventPlay(boolean isPlaying) {
 
     }
 
-    @Override
-    public void eventPause() {
 
-    }
-
-    @Override
-    public void eventReleaseInit() {
-
-    }
 
 
     public interface FullScreenClick {

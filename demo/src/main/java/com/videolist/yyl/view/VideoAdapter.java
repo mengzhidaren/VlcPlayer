@@ -10,13 +10,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.videolist.yyl.R;
 import com.videolist.yyl.dao.VideoItemData;
-import com.yyl.videolist.video.VlcVideoView;
+import com.yyl.videolist.video.VlcMediaView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2016/10/17/017.
@@ -25,9 +23,9 @@ import butterknife.ButterKnife;
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
 
     private List<VideoItemData> list = new ArrayList<>();
-    VlcVideoView vlcVideoView;
+    VlcMediaView vlcVideoView;
 
-    public VideoAdapter(VlcVideoView vlcVideoView) {
+    public VideoAdapter(VlcMediaView vlcVideoView) {
         this.vlcVideoView = vlcVideoView;
     }
 
@@ -54,18 +52,17 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     }
 
     public class VideoViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.vlc_title)
         TextView title;
-        @Bind(R.id.cover)
         ImageView cover;
-        @Bind(R.id.vlc_from)
         TextView from;
-        @Bind(R.id.vlc_type)
         TextView vlc_type;
 
         public VideoViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            title=itemView.findViewById(R.id.vlc_title);
+            cover=itemView.findViewById(R.id.cover);
+            from=itemView.findViewById(R.id.vlc_from);
+            vlc_type=itemView.findViewById(R.id.vlc_type);
         }
 
         public void setData(final int position) {

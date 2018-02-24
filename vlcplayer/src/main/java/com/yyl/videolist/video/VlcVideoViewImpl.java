@@ -9,9 +9,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.yyl.videolist.FrameLayoutScale;
 import com.yyl.videolist.listeners.VideoViewDetachedEvent;
 import com.yyl.videolist.utils.LogUtils;
-import com.yyl.videolist.view.FrameLayoutScale;
 
 import java.util.ArrayList;
 

@@ -1,12 +1,13 @@
 package com.yyl.videolist.video;
 
 
-import com.yyl.videolist.listeners.MediaPlayerControl;
+import org.videolan.vlc.listener.MediaListenerEvent;
+import org.videolan.vlc.listener.MediaPlayerControl;
 
 /**
  * Created by yuyunlong on 2016/8/12/012.
  */
-public class VlcMediaController extends VlcMediaControllerBase {
+public class VlcMediaController extends VlcMediaControllerBase implements MediaListenerEvent {
 
     public VlcMediaController(MediaPlayerControl mediaPlayerControl) {
         super(mediaPlayerControl);
@@ -22,14 +23,15 @@ public class VlcMediaController extends VlcMediaControllerBase {
         isResume = false;
     }
 
+
     @Override
-    public void eventBuffing(final float buffing, boolean show) {
+    public void eventBuffing(final int event, final float buffing) {
         if (isResume) {
-            isShowLoading = show;
+            isShowLoading = buffing==100f;
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    buffingLayout.eventBuffing(buffing, isShowLoading);
+                    buffingLayout.eventBuffing(event, buffing);
                 }
             });
 
@@ -72,20 +74,13 @@ public class VlcMediaController extends VlcMediaControllerBase {
         }
     }
 
+
     @Override
-    public void eventPlay() {
+    public void eventPlay(boolean isPlaying) {
 
     }
 
-    @Override
-    public void eventPause() {
 
-    }
-
-    @Override
-    public void eventReleaseInit() {
-
-    }
 
 
 }

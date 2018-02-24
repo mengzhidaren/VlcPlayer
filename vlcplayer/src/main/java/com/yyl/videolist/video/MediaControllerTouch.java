@@ -11,13 +11,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yyl.videolist.MyVideoView;
 import com.yyl.videolist.R;
-import com.yyl.videolist.VideoView;
-import com.yyl.videolist.listeners.MediaPlayerControl;
 import com.yyl.videolist.listeners.VideoViewListeners;
 import com.yyl.videolist.listeners.VideoViewTouchListeners;
 import com.yyl.videolist.utils.StringUtils;
 import com.yyl.videolist.utils.V;
+
+import org.videolan.vlc.listener.MediaPlayerControl;
 
 
 /**
@@ -55,7 +56,7 @@ public class MediaControllerTouch implements VideoViewTouchListeners {
         }
     };
 
-    public MediaControllerTouch(View layoutRootView, VideoView mPlayer, VideoViewListeners videolistener) {
+    public MediaControllerTouch(View layoutRootView, MyVideoView mPlayer, VideoViewListeners videolistener) {
         this.mPlayer = mPlayer;
         this.videolistener = videolistener;
         speed_direction = V.findV(layoutRootView, R.id.mediacontroller_speed_direction);
@@ -115,7 +116,7 @@ public class MediaControllerTouch implements VideoViewTouchListeners {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
                     boolean isresult = mGestureDetector.onTouchEvent(event);
                     if (!isresult && isMove && mPlayer != null) {
-                        mPlayer.seekTo(newposition);
+                        mPlayer.seekTo((int)newposition);
                         setSpeedVisibiliy(false);
                     }
                     return isresult;

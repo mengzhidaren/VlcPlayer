@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
-    <com.yyl.videolist.video.VlcVideoView
+    <com.yyl.videolist.video.VlcMediaView
         android:id="@+id/vlc_videoView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

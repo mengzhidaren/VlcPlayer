@@ -9,12 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.videolist.yyl.R;
-import com.yyl.videolist.VideoView;
-import com.yyl.videolist.listeners.MediaListenerEvent;
+import com.yyl.videolist.MyVideoView;
 import com.yyl.videolist.utils.V;
 
 import org.videolan.libvlc.LibVLC;
 import org.videolan.libvlc.Media;
+import org.videolan.vlc.listener.MediaListenerEvent;
 import org.videolan.vlc.util.VLCOptions;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * https://wiki.videolan.org/VLC_command-line_help/
  */
 public class RTSPActivity extends AppCompatActivity implements MediaListenerEvent {
-    VideoView videoView;
+    MyVideoView videoView;
     String path1 = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";//苹果的m3u8
     String path2 = "rtmp://live.hkstv.hk.lxdns.com/live/hks";// h264的地址
     String path3 = "rtsp://218.204.223.237:554/live/1/66251FC11353191F/e7ooqwcfbqjoo80j.sdp";//h263地址
@@ -74,7 +74,7 @@ public class RTSPActivity extends AppCompatActivity implements MediaListenerEven
         libOptions.add("--androidwindow-chroma");
         libOptions.add("RV16");
         LibVLC libVLC = new LibVLC(getApplicationContext(), libOptions);
-        videoView.setMediaPlayer(libVLC);
+        //  videoView.setMediaPlayer(libVLC);
 
         final Media media = new Media(libVLC, Uri.parse(path2));
         media.setHWDecoderEnabled(true, true);
@@ -89,6 +89,11 @@ public class RTSPActivity extends AppCompatActivity implements MediaListenerEven
     long time;
 
     @Override
+    public void eventBuffing(int event, float buffing) {
+
+    }
+
+    @Override
     public void eventPlayInit(boolean openingVideo) {
         if (!openingVideo) {
             time = System.currentTimeMillis();
@@ -96,12 +101,8 @@ public class RTSPActivity extends AppCompatActivity implements MediaListenerEven
             long useTime = System.currentTimeMillis() - time;
             Log.i("yyl", "打开地址时间=" + useTime);
         }
-        progressDialog.show();
-    }
-
-    @Override
-    public void eventBuffing(float buffing, boolean show) {
-
+        if (openingVideo)
+            progressDialog.show();
     }
 
 
@@ -116,19 +117,13 @@ public class RTSPActivity extends AppCompatActivity implements MediaListenerEven
     }
 
     @Override
-    public void eventPlay() {
-        long useTime = System.currentTimeMillis() - time;
-        Log.i("yyl", "延迟时间=" + useTime);
-        progressDialog.hide();
+    public void eventPlay(boolean isPlaying) {
+        if (isPlaying) {
+            long useTime = System.currentTimeMillis() - time;
+            Log.i("yyl", "延迟时间=" + useTime);
+            progressDialog.hide();
+        }
     }
 
-    @Override
-    public void eventPause() {
 
-    }
-
-    @Override
-    public void eventReleaseInit() {
-
-    }
 }

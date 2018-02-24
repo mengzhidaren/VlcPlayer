@@ -66,9 +66,10 @@ public class MediaControllerBuffing implements VideoViewControllerListeners {
 
     }
 
+
     @Override
-    public void eventBuffing(float buffing, boolean show) {
-        if (show) {
+    public void eventBuffing(int event, float buffing) {
+        if (buffing==100f) {
             buffering.setVisibility(buffing > 0 ? View.VISIBLE : View.GONE);
             buffering.setText(buffing + "%");
             bufferingView.setVisibility(View.VISIBLE);
@@ -99,17 +100,8 @@ public class MediaControllerBuffing implements VideoViewControllerListeners {
     }
 
     @Override
-    public void eventPlay() {
+    public void eventPlay(boolean isPlaying) {
 
     }
 
-    @Override
-    public void eventPause() {
-
-    }
-
-    @Override
-    public void eventReleaseInit() {
-
-    }
 }

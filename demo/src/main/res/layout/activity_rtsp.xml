@@ -22,7 +22,7 @@
         android:onClick="test_start"
         android:text="start" />
 
-    <com.yyl.videolist.VideoView
+    <com.yyl.videolist.MyVideoView
         android:id="@+id/rtsp_video"
         android:layout_width="match_parent"
         android:background="@color/blue"

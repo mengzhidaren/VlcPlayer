@@ -2,7 +2,6 @@ package com.yyl.videolist.video;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Handler;
 import android.os.Message;
@@ -14,10 +13,11 @@ import android.widget.FrameLayout;
 import com.yyl.videolist.demo.VideoControllerDemo;
 import com.yyl.videolist.listeners.FullScreenControl;
 import com.yyl.videolist.listeners.MediaPlayerChangeState;
-import com.yyl.videolist.listeners.MediaPlayerControl;
 import com.yyl.videolist.listeners.VideoViewControllerListeners;
 import com.yyl.videolist.listeners.VideoViewListeners;
 import com.yyl.videolist.listeners.VideoViewTouchListeners;
+
+import org.videolan.vlc.listener.MediaPlayerControl;
 
 /**
  * Created by yuyunlong on 2016/8/13/013.

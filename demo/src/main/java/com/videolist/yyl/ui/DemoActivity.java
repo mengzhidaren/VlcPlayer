@@ -7,10 +7,10 @@ import android.os.Bundle;
 
 import com.videolist.yyl.R;
 import com.yyl.videolist.utils.V;
-import com.yyl.videolist.video.VlcVideoView;
+import com.yyl.videolist.video.VlcMediaView;
 
 public class DemoActivity extends AppCompatActivity {
-    VlcVideoView vlcVideoView;
+    VlcMediaView vlcVideoView;
     String path = "http://img1.peiyinxiu.com/2014121211339c64b7fb09742e2c.mp4";
 
     @Override

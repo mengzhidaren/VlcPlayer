@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.videolist.yyl.R;
 import com.videolist.yyl.dao.VideoListData;
 import com.videolist.yyl.view.VideoAdapter;
-import com.yyl.videolist.video.VlcVideoView;
+import com.yyl.videolist.video.VlcMediaView;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,14 +20,14 @@ public class ListVideoActivity extends AppCompatActivity {
 
     VideoAdapter videoAdapter;
     RecyclerView recyclerView;
-    VlcVideoView vlcVideoView;
+    VlcMediaView vlcVideoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_video);
         recyclerView = ((RecyclerView) findViewById(R.id.videoList));
-        vlcVideoView = ((VlcVideoView) findViewById(R.id.vlc_videoView));
+        vlcVideoView = ((VlcMediaView) findViewById(R.id.vlc_videoView));
         videoAdapter = new VideoAdapter(vlcVideoView);
         recyclerView.setAdapter(videoAdapter);
 
